@@ -3,7 +3,8 @@ import { put, call, take } from 'redux-saga/effects';
 
 import * as profile from './profile';
 import loggingService from '../../services/logging';
-import { client } from '../../services/api'
+import { client } from '../../services/api';
+
 export type SetUpState = {
   loading: boolean;
   completed: boolean;
@@ -50,7 +51,7 @@ function* setUpFailure(errorMessage: string) {
     // );
   } catch (e) {
     // Real edge case, sign out fails. Reload the app.
-    //yield call(Updates.reloadAsync);
+    // yield call(Updates.reloadAsync);
   }
   yield put(
     actions.failure({
@@ -61,9 +62,9 @@ function* setUpFailure(errorMessage: string) {
 
 function* setUpSaga() {
   try {
-    client.init("https://cat-fact.herokuapp.com");
+    client.init('https://cat-fact.herokuapp.com');
 
-    yield put(profile.actions.request({ }));
+    yield put(profile.actions.request({}));
 
     yield put(actions.success());
   } catch (e) {

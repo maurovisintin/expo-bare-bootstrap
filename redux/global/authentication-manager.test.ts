@@ -1,9 +1,6 @@
 import { testSaga } from 'redux-saga-test-plan';
 
-import { products } from 'profiles-shared';
-
 import * as authenticationManager from './authentication-manager';
-import * as marketDataManager from './market-data-manager';
 
 jest
   .mock('./authentication-manager')

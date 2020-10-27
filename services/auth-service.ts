@@ -169,11 +169,7 @@ const setLocalAuth = async (value: boolean) => {
    and Auth config with values from settings
  */
 
-const init = async (
-  authority: string,
-  scopes: string[],
-  clientId: string
-) => {
+const init = async (authority: string, scopes: string[], clientId: string) => {
   AUTH_CONFIG = {
     issuer: authority.replace(/\/$/, ''),
     scopes,
@@ -185,9 +181,7 @@ const init = async (
     const refreshToken = await getRefreshToken();
     if (accessToken && refreshToken) {
       api.client.setAuthHeaderInterceptor(getAccessToken);
-      api.client.setRefreshInterceptor<AppAuth.TokenResponse>(
-        refreshTokens
-      );
+      api.client.setRefreshInterceptor<AppAuth.TokenResponse>(refreshTokens);
     }
   } catch (e) {
     // ERROR: Unexpected error
@@ -209,7 +203,7 @@ const setupAuth = async (authResponse: AppAuth.TokenResponse) => {
       `Bad response: ${authResponse}`
     );
     loggingService.setError(authFailedError);
-    //await Updates.reloadAsync();
+    // await Updates.reloadAsync();
     return;
   }
 

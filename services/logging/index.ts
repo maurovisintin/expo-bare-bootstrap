@@ -1,4 +1,4 @@
-//import * as Sentry from '@sentry/react-native';
+// import * as Sentry from '@sentry/react-native';
 import Constants from 'expo-constants';
 import { AuthError } from '../auth-error';
 
@@ -11,8 +11,7 @@ import { AuthError } from '../auth-error';
   This is hard to debug as the Sentry UI lags before showing errors.
 */
 
-const DSN =
-  '';
+const DSN = '';
 
 // eslint-disable-next-line no-undef
 const DISABLED =
@@ -22,7 +21,6 @@ const DISABLED =
 const init = () => {
   if (DISABLED) {
     console.log('[@sentry/react-native] Disabled Sentry in development');
-    return;
   }
 
   // Sentry.init({
@@ -57,8 +55,8 @@ const init = () => {
   // }
 };
 
-const clearScope = () => {}
-  // !DISABLED && Sentry.configureScope(scope => scope.clear());
+const clearScope = () => {};
+// !DISABLED && Sentry.configureScope(scope => scope.clear());
 
 const setUser = (id: string) => {
   if (!DISABLED) {
@@ -70,15 +68,15 @@ const setUser = (id: string) => {
 
 const setTag = (key: string, value: string) => {
   if (!DISABLED) {
-   // Sentry.setTag(key, value);
+    // Sentry.setTag(key, value);
   }
 };
 
-const setError = (err: Error | AuthError) => {}
-  //!DISABLED && Sentry.captureException(err);
+const setError = (err: Error | AuthError) => {};
+//! DISABLED && Sentry.captureException(err);
 
-const setMessage = (msg: string) => {}
-//!DISABLED && Sentry.captureMessage(msg);
+const setMessage = (msg: string) => {};
+//! DISABLED && Sentry.captureMessage(msg);
 
 const setBreadcrumb = (category: string, message: string) => {
   if (!DISABLED) {
@@ -90,8 +88,8 @@ const setBreadcrumb = (category: string, message: string) => {
   }
 };
 
-const getLastEventId = () => {}
-//!DISABLED && Sentry.getCurrentHub().lastEventId();
+const getLastEventId = () => {};
+//! DISABLED && Sentry.getCurrentHub().lastEventId();
 
 export default {
   init,

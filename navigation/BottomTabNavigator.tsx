@@ -8,41 +8,13 @@ import useColorScheme from '../hooks/useColorScheme';
 import FeedScreen from '../screens/FeedScreen';
 import CartScreen from '../screens/CartScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import {
+  BottomTabParamList,
+  TabOneParamList,
+  TabTwoParamList
+} from './navigation-types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
-
-export default function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
-
-  return (
-    <BottomTab.Navigator
-      initialRouteName="Feed"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
-      <BottomTab.Screen
-        name="Feed"
-        component={TabOneNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="logo-rss" color={color} />,
-        }}
-      />
-      <BottomTab.Screen
-        name="Carrello"
-        component={TabTwoNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-cart" color={color} />,
-        }}
-      />
-      <BottomTab.Screen
-        name="Profilo"
-        component={TabThreeNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-contact" color={color} />,
-        }}
-      />
-    </BottomTab.Navigator>
-  );
-}
 
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
@@ -89,5 +61,44 @@ function TabThreeNavigator() {
         options={{ headerTitle: 'Tab Two Title' }}
       />
     </TabTwoStack.Navigator>
+  );
+}
+
+export default function BottomTabNavigator() {
+  const colorScheme = useColorScheme();
+
+  return (
+    <BottomTab.Navigator
+      initialRouteName="Feed"
+      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+    >
+      <BottomTab.Screen
+        name="Feed"
+        component={TabOneNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="logo-rss" color={color} />
+          )
+        }}
+      />
+      <BottomTab.Screen
+        name="Carrello"
+        component={TabTwoNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="ios-cart" color={color} />
+          )
+        }}
+      />
+      <BottomTab.Screen
+        name="Profilo"
+        component={TabThreeNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="ios-contact" color={color} />
+          )
+        }}
+      />
+    </BottomTab.Navigator>
   );
 }

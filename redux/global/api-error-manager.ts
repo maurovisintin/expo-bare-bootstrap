@@ -1,7 +1,5 @@
 import { PayloadAction } from 'typesafe-actions';
 
-import { replace } from '../../navigation/navigation-service';
-import { routeConstants } from '../../navigation/route-constants';
 import { sendLocalNotification } from '../../services/notification';
 import loggingService from '../../services/logging';
 
@@ -29,12 +27,6 @@ const mapProblems = (problem: string) => {
 const saga = function* saga(action: PayloadAction<string, any>): Generator {
   try {
     const { response } = action.payload;
-
-    // Upgrade required
-    if (response.status === 426) {
-      yield replace(routeConstants.ERROR_UPGRADE, { message: response.data });
-      return;
-    }
 
     const error = {
       errorType: mapProblems(response.problem),

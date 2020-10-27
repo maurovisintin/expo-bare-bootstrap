@@ -15,7 +15,8 @@ export default function useCachedResources() {
         // Load fonts
         await Font.loadAsync({
           ...Ionicons.font,
-          'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
+          // eslint-disable-next-line global-require
+          'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf')
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

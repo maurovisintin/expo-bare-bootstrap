@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import theme from '../theme';
 
 import SafeContainer from './safe-container';
@@ -55,7 +55,6 @@ export const NotificationComponent = ({
         <View style={s.content}>
           {!!title && (
             <Text
-              color="white"
               fontSize={theme.fontSize.paragraph}
               fontFamily="sansSerif"
               modifiers={['bold']}
@@ -64,9 +63,7 @@ export const NotificationComponent = ({
             </Text>
           )}
           {!!description && (
-            <Text color="white" fontSize={theme.fontSize.paragraph}>
-              {description}
-            </Text>
+            <Text fontSize={theme.fontSize.paragraph}>{description}</Text>
           )}
         </View>
       </View>

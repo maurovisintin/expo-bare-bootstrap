@@ -10,7 +10,7 @@ type FailureData = null;
 
 export type SuccessData = {
   text: string;
-}
+};
 
 export type CustomSelectors = {
   getText: string | undefined;
@@ -55,15 +55,14 @@ const reducer = () =>
     .handleAction(actions.request, (state, action) =>
       requestHandler(state, action)
     )
-    .handleAction([actions.success, actions.failure], (state, action) => 
+    .handleAction([actions.success, actions.failure], (state, action) =>
       responseHandler(state, action)
     );
 
 const select = createStructuredSelector<ProfileState, {}, Selectors>({
   status: asyncHelpers.statusSelector(),
   data: createStructuredSelector<ProfileState, {}, CustomSelectors>({
-    getText: state =>
-      state?.response?.data?.text as string | undefined
+    getText: state => state?.response?.data?.text as string | undefined
   })
 });
 
