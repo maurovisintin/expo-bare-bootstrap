@@ -6,7 +6,11 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "reset:modules": "rimraf node_modules/ yarn.lock",
+    "reset:rn": "watchman watch-del-all; rimraf $TMPDIR/react-*; rimraf $TMPDIR/haste-map-react-native-packager-*",
+    "reset": "yarn reset:rn & yarn reset:modules",
+    "setup": "adb reverse tcp:5000 tcp:5000 && adb reverse tcp:19000 tcp:19000 && adb reverse tcp:19001 tcp:19001 && adb reverse tcp:3000 tcp:3000"
   },
   "jest": {
     "preset": "jest-expo"
@@ -17,6 +21,8 @@
     "@react-navigation/bottom-tabs": "^5.8.0",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
+    "@react-native-community/async-storage": "1.12.1",
+    "@react-native-community/netinfo": "5.9.7",
     "expo": "~39.0.2",
     "expo-asset": "~8.2.0",
     "expo-constants": "~9.2.0",
@@ -25,20 +31,37 @@
     "expo-splash-screen": "~0.6.2",
     "expo-status-bar": "~1.0.2",
     "expo-web-browser": "~8.5.0",
+    "expo-permissions": "9.3.0",
+    "expo-secure-store": "9.2.0",
+    "expo-app-auth": "9.2.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
     "react-native-gesture-handler": "~1.7.0",
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "~2.10.1",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "react-native-notifier": "1.1.0",
+    "apisauce": "1.1.2",
+    "axios-auth-refresh": "3.0.0",
+    "moment": "2.29.1",
+    "react-redux": "7.1.0",
+    "redux": "4.0.3",
+    "redux-logger": "3.0.6",
+    "redux-saga": "1.0.2",
+    "typesafe-actions": "4.4.2",
+    "retry-axios": "2.3.0",
+    "polished": "4.0.3"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
     "jest-expo": "~39.0.0",
-    "typescript": "~3.9.5"
+    "typescript": "~3.9.5",
+    "@types/react-redux": "7.1.0",
+    "@types/redux-logger": "^3.0.7",
+    "axios-mock-adapter": "1.19.0"
   },
   "private": true
 }
