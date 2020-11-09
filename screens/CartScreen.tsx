@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Text, View } from '../components/Themed';
+import { Text, Container } from '../components';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,13 +22,8 @@ const styles = StyleSheet.create({
 
 export default function CartScreen() {
   return (
-    <View style={styles.container}>
+    <Container>
       <Text style={styles.title}>Carrello</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-    </View>
+    </Container>
   );
 }

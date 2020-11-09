@@ -134,7 +134,7 @@ const colors = {
   bgPrimary: '#fff',
   bgSecondary: '#e7c782',
   bgGray: '#f7f8f9',
-  primary: createColors('#F87B73'),
+  primary: createColors('#6F00FF'),
   contrast: createColors('#2D3778'),
   secondary: createColors('#6A4C69'),
   ternary: createColors('#34A3B3'),

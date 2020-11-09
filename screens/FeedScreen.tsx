@@ -1,34 +1,30 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
+import { useSelector } from 'react-redux';
 
-import { Text, View } from '../components/Themed';
+import { selectors, global } from '../redux';
+import { images } from '../assets/images';
+import { Text, Container, FlatButton, HeroOne } from '../components';
+import { AppState } from '../AppState';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%'
-  }
-});
+const StyledImage = styled.Image`
+  height: 300px;
+  width: 300px;
+  resize-mode: contain;
+  margin: ${p => p.theme.paddings.regular};
+`;
 
 export default function FeedScreen() {
+  const profileData = useSelector<AppState, global.profile.Selectors>(
+    ({ profile }) => selectors.profile(profile, {})
+  );
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Feed</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-    </View>
+    <Container modifiers="padded">
+      <HeroOne size="small" heading="Feed" info="Gattino" />
+      <StyledImage source={images.kitten} />
+      <Text>{profileData.data.getText}</Text>
+      <FlatButton title="test" onPress={() => {}} />
+    </Container>
   );
 }

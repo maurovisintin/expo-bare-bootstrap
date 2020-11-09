@@ -51,7 +51,11 @@
     "redux-logger": "3.0.6",
     "redux-saga": "1.0.2",
     "retry-axios": "2.3.0",
-    "typesafe-actions": "4.4.2"
+    "typesafe-actions": "4.4.2",
+    "styled-components": "5.2.1",
+    "styled-components-modifiers": "1.2.5",
+    "react-native-snap-carousel": "3.9.1",
+    "react-native-modalize": "2.0.6"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
@@ -62,6 +66,7 @@
     "@typescript-eslint/eslint-plugin": "4.0.1",
     "@typescript-eslint/parser": "4.0.1",
     "@types/jest": "24.0.13",
+    "@types/styled-components": "4.1.16",
     "axios-mock-adapter": "1.19.0",
     "eslint": "7.12.1",
     "eslint-config-airbnb": "18.2.0",
@@ -73,7 +78,11 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "jest-expo": "39.0.0",
     "typescript": "3.9.5",
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "stylelint": "13.7.2",
+    "stylelint-config-recommended": "3.0.0",
+    "stylelint-config-styled-components": "0.1.1",
+    "stylelint-processor-styled-components": "1.10.0"
   },
   "private": true
 }
