@@ -3,16 +3,17 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
-import Colors from '../constants/Colors';
 import FeedScreen from '../screens/FeedScreen';
 import CartScreen from '../screens/CartScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import {
   BottomTabParamList,
-  TabOneParamList,
-  TabTwoParamList
+  TabFeedParamList,
+  TabCartParamList,
+  TabProfileParamList
 } from './navigation-types';
 import theme from '../theme';
+import { routeConstants } from './route-constants';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -24,41 +25,51 @@ function TabBarIcon(props: { name: string; color: string }) {
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const TabOneStack = createStackNavigator<TabFeedParamList>();
+
+const headerOptions = {
+  title: '',
+  headerStyle: {
+    shadowOpacity: 0,
+    elevation: 0
+  }
+};
 
 function TabOneNavigator() {
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
-        name="FeedScreen"
+        name={routeConstants.FEED}
         component={FeedScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+        options={{ ...headerOptions }}
       />
     </TabOneStack.Navigator>
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const TabTwoStack = createStackNavigator<TabCartParamList>();
 
 function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
-        name="CartScreen"
+        name={routeConstants.CART}
         component={CartScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        options={{ ...headerOptions }}
       />
     </TabTwoStack.Navigator>
   );
 }
 
+const TabThreeStack = createStackNavigator<TabProfileParamList>();
+
 function TabThreeNavigator() {
   return (
     <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="ProfileScreen"
+      <TabThreeStack.Screen
+        name={routeConstants.PROFILE}
         component={ProfileScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        options={{ ...headerOptions }}
       />
     </TabTwoStack.Navigator>
   );
@@ -67,11 +78,11 @@ function TabThreeNavigator() {
 export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
-      initialRouteName="Feed"
+      initialRouteName={routeConstants.TAB_FEED}
       tabBarOptions={{ activeTintColor: theme.colors.primary.main }}
     >
       <BottomTab.Screen
-        name="Feed"
+        name={routeConstants.TAB_FEED}
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -80,7 +91,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="Carrello"
+        name={routeConstants.TAB_CART}
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -89,7 +100,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="Profilo"
+        name={routeConstants.TAB_PROFILE}
         component={TabThreeNavigator}
         options={{
           tabBarIcon: ({ color }) => (

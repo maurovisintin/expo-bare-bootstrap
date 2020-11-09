@@ -2,10 +2,12 @@ import styled from 'styled-components/native';
 import { applyStyleModifiers } from 'styled-components-modifiers';
 
 import modifiers from '../../../elements/input-field/styled/modifiers';
+import { CustomTheme } from '../../../../theme';
 
 type Props = {
   modifiers?: any;
   testID?: string;
+  theme: CustomTheme;
 };
 
 const InputValue = styled.TextInput<Props>`

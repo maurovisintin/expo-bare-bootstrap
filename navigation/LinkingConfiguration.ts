@@ -6,14 +6,19 @@ export default {
     screens: {
       Root: {
         screens: {
-          TabOne: {
+          Feed: {
             screens: {
-              TabOneScreen: 'one'
+              FeedScreen: 'one'
             }
           },
-          TabTwo: {
+          Carrello: {
             screens: {
-              TabTwoScreen: 'two'
+              CartScreen: 'two'
+            }
+          },
+          Profilo: {
+            screens: {
+              ProfileScreen: 'two'
             }
           }
         }

@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 
-import { Text, Container } from '../components';
+import { HeroOne, Container } from '../components';
 
-export default function ProfileScreen() {
+export default function AuthScreen() {
   return (
-    <Container>
-      <Text>Profilo</Text>
+    <Container modifiers="padded">
+      <HeroOne size="small" heading="Profile" info="profile down here!" />
     </Container>
   );
 }

@@ -1,29 +1,21 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
 
-import { Text, Container } from '../components';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%'
-  }
-});
+import { Container, FlatButton, HeroOne } from '../components';
+import { navigate } from '../navigation/navigation-service';
+import { routeConstants } from '../navigation/route-constants';
 
 export default function CartScreen() {
   return (
-    <Container>
-      <Text style={styles.title}>Carrello</Text>
+    <Container modifiers="padded">
+      <HeroOne size="small" heading="Carrello" info="Fai cose!" />
+      <FlatButton
+        title="sign up"
+        onPress={() =>
+          navigate(routeConstants.MODALS, {
+            screen: routeConstants.AUTH_SCREEN
+          })
+        }
+      />
     </Container>
   );
 }

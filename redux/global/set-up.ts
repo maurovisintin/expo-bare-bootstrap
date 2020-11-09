@@ -64,8 +64,6 @@ function* setUpSaga() {
   try {
     client.init('https://cat-fact.herokuapp.com');
 
-    yield put(profile.actions.request({}));
-
     yield put(actions.success());
   } catch (e) {
     yield setUpFailure(`${e}`);

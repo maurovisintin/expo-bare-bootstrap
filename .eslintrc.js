@@ -50,6 +50,8 @@ module.exports = {
     '@typescript-eslint/ban-ts-ignore': 'off', // annoying to have this when we need ts-ignore to make tests work
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
     /**
      * @description rules of eslint-plugin-react
      */

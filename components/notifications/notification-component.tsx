@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import theme from '../../theme';
+import Text from '../elements/text';
 
 import SafeContainer from './safe-container';
 

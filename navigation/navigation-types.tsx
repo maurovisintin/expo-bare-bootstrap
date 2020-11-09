@@ -1,22 +1,29 @@
+import { routeConstants } from './route-constants';
+
 export type RootStackParamList = {
-  Root: undefined;
-  NotFound: undefined;
+  [routeConstants.ROOT]: undefined;
+  [routeConstants.NOT_FOUND]: undefined;
+  [routeConstants.MODALS]: undefined;
 };
 
 export type BottomTabParamList = {
-  Feed: undefined;
-  Carrello: undefined;
-  Profilo: undefined;
+  [routeConstants.TAB_FEED]: undefined;
+  [routeConstants.TAB_CART]: undefined;
+  [routeConstants.TAB_PROFILE]: undefined;
 };
 
-export type TabOneParamList = {
-  FeedScreen: undefined;
+export type TabFeedParamList = {
+  [routeConstants.FEED]: undefined;
 };
 
-export type TabTwoParamList = {
-  CartScreen: undefined;
+export type TabCartParamList = {
+  [routeConstants.CART]: undefined;
 };
 
-export type TabThreeParamList = {
-  ProfileScreen: undefined;
+export type TabProfileParamList = {
+  [routeConstants.PROFILE]: undefined;
+};
+
+export type ModalsParamList = {
+  [routeConstants.AUTH_SCREEN]: undefined;
 };

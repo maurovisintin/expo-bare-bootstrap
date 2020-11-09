@@ -31,6 +31,7 @@ import Modal from './elements/modal';
 import Carousel from './elements/carousel';
 import CircleButton from './elements/circle-button';
 import Icon from './elements/icon';
+import { RefreshControl } from './elements/refresh-control';
 
 export {
   FlatButton,
@@ -64,5 +65,6 @@ export {
   Modal,
   Carousel,
   CircleButton,
-  Icon
+  Icon,
+  RefreshControl
 };

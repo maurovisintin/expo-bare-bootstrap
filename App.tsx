@@ -7,6 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from './theme';
 import useCachedResources from './hooks/useCachedResources';
 import Navigation from './navigation';
+import { NotificationRoot } from './services/notification';
 
 import { store } from './redux';
 
@@ -21,6 +22,7 @@ const App = () => {
       <Provider store={store}>
         <SafeAreaProvider>
           <Navigation />
+          <NotificationRoot />
           <StatusBar />
         </SafeAreaProvider>
       </Provider>

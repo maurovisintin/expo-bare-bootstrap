@@ -5,6 +5,7 @@ import { CustomTheme } from '../../../../theme';
 
 type Props = {
   modifiers?: any;
+  theme: CustomTheme;
 };
 
 const InputContainer = styled.View<Props>`
