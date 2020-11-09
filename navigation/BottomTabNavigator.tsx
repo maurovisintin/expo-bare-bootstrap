@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
 import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
 import FeedScreen from '../screens/FeedScreen';
 import CartScreen from '../screens/CartScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -13,6 +12,7 @@ import {
   TabOneParamList,
   TabTwoParamList
 } from './navigation-types';
+import theme from '../theme';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -65,12 +65,10 @@ function TabThreeNavigator() {
 }
 
 export default function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
-
   return (
     <BottomTab.Navigator
       initialRouteName="Feed"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      tabBarOptions={{ activeTintColor: theme.colors.primary.main }}
     >
       <BottomTab.Screen
         name="Feed"
